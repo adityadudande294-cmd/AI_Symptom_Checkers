@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clinical AI Symptom Assessment & Safe Triage Platform — Executive Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            background: #e5e7eb;
+            color: #0f172a;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 10mm auto;
+            background: #fff;
+            padding: 14mm;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
+            box-sizing: border-box;
+        }
+
+        .eyebrow {
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            font-size: 9.5px;
+            font-weight: 700;
+            color: #0d9488;
+        }
+
+        h2.sec {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f2a4a;
+            margin-top: 2px;
+        }
+
+        .rule {
+            height: 3px;
+            width: 44px;
+            background: #0d9488;
+            border-radius: 2px;
+            margin: 8px 0 14px;
+        }
+
+        .flow {
+            display: flex;
+            align-items: stretch;
+            gap: 6px;
+        }
+
+        .flow .step {
+            flex: 1;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px;
+            background: #f8fafc;
+            position: relative;
+        }
+
+        .flow .arrow {
+            display: flex;
+            align-items: center;
+            color: #0d9488;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .num {
+            width: 26px;
+            height: 26px;
+            border-radius: 9999px;
+            background: #0f2a4a;
+            color: #fff;
+            font-weight: 800;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            vertical-align: top;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 12mm;
+            }
+
+            body {
+                background: #fff;
+            }
+
+            .page {
+                width: auto;
+                min-height: 0;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                break-after: page;
+                page-break-after: always;
+            }
+
+            .page:last-child {
+                break-after: auto;
+                page-break-after: auto;
+            }
+
+            .avoid {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ PAGE 1: COVER & VISION ============ -->
+    <section class="page">
+        <div class="rounded-xl text-white p-8"
+            style="background:linear-gradient(135deg,#0f2a4a 0%,#134e6f 60%,#0d9488 100%);">
+            <div class="text-[10px] font-bold tracking-[.2em] uppercase opacity-80">Executive Product & Delivery
+                Proposal</div>
+            <h1 class="text-[30px] leading-tight font-extrabold mt-3">Clinical AI Symptom Assessment &amp; Safe Triage
+                Platform</h1>
+            <p class="mt-3 text-[13px] opacity-90 max-w-[135mm]">A clinician-governed, deterministic safety framework
+                that guides people to the right level of care, without the risks of unverified consumer AI.</p>
+            <div class="mt-6 flex gap-6 text-[10.5px] opacity-90">
+                <div>
+                    <div class="font-bold uppercase tracking-wider opacity-70">Prepared for</div>Client Leadership &amp;
+                    Clinical Governance Board
+                </div>
+                <div>
+                    <div class="font-bold uppercase tracking-wider opacity-70">Version</div>Executive Edition 1.0
+                </div>
+                <div>
+                    <div class="font-bold uppercase tracking-wider opacity-70">Classification</div>Confidential
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-7">
+            <div class="eyebrow">Section 1</div>
+            <h2 class="sec">Executive Summary &amp; Product Vision</h2>
+            <div class="rule"></div>
+            <p class="text-[12px] leading-relaxed text-slate-700">
+                Millions of people now turn to general-purpose AI chatbots for health advice. These tools can produce
+                fluent but unverified answers, invent medical facts ("hallucinate"), and offer no consistent way to
+                recognise an emergency. For a health organisation, that is a patient-safety and reputational risk.
+            </p>
+            <p class="mt-3 text-[12px] leading-relaxed text-slate-700">
+                Our platform replaces that uncertainty with a <b>clinician-governed, deterministic triage framework</b>.
+                Every question, red-flag rule, and care recommendation is defined and approved by clinicians. It is not
+                improvised by a language model at runtime. The same inputs always produce the same, explainable outcome,
+                which can be audited, reviewed, and improved under clinical governance.
+            </p>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-4 avoid">
+            <div class="rounded-lg border border-red-200 bg-red-50 p-4">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-red-700">The Problem</div>
+                <ul class="mt-2 text-[11.5px] text-slate-700 space-y-1.5 list-disc pl-4">
+                    <li>Unverified, non-reproducible AI health advice</li>
+                    <li>No guaranteed emergency recognition</li>
+                    <li>Forced sign-ups that deter people from seeking help early</li>
+                    <li>No usable handover for the treating clinician</li>
+                </ul>
+            </div>
+            <div class="rounded-lg border border-teal-200 bg-teal-50 p-4">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-teal-700">Our Approach</div>
+                <ul class="mt-2 text-[11.5px] text-slate-700 space-y-1.5 list-disc pl-4">
+                    <li>Clinician-approved, rule-based safety logic</li>
+                    <li>Immediate red-flag diversion to emergency guidance</li>
+                    <li>Anonymous access with no account required</li>
+                    <li>A doctor-ready consultation summary on every assessment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <div class="eyebrow">Core Values</div>
+            <div class="mt-2 grid grid-cols-3 gap-3">
+                <div class="rounded-lg border border-slate-200 p-4 avoid">
+                    <div class="text-[13px] font-extrabold text-[#0f2a4a]">Anonymous by Default</div>
+                    <p class="mt-1 text-[11px] text-slate-600">Zero mandatory sign-up. Anyone can start a symptom check
+                        within seconds, with no name, email, or phone number.</p>
+                </div>
+                <div class="rounded-lg border border-slate-200 p-4 avoid">
+                    <div class="text-[13px] font-extrabold text-[#0f2a4a]">Structured Intake</div>
+                    <p class="mt-1 text-[11px] text-slate-600">Guided, clinically sequenced questions capture the right
+                        facts the first time, with no guesswork and no free-form drift.</p>
+                </div>
+                <div class="rounded-lg border border-slate-200 p-4 avoid">
+                    <div class="text-[13px] font-extrabold text-[#0f2a4a]">Verifiable Medical Boundaries</div>
+                    <p class="mt-1 text-[11px] text-slate-600">The platform provides educational triage guidance, never
+                        a diagnosis, and states clearly when it cannot assess reliably.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PAGE 2: JOURNEY + SAFETY MATRIX ============ -->
+    <section class="page">
+        <div class="eyebrow">Section 2</div>
+        <h2 class="sec">End-to-End Patient Journey</h2>
+        <div class="rule"></div>
+        <p class="text-[11.5px] text-slate-600 mb-4">Four steps take a person from first contact to a clear, actionable
+            next step, typically within minutes.</p>
+
+        <div class="flow avoid">
+            <div class="step">
+                <div class="num">1</div>
+                <div class="mt-2 text-[12px] font-extrabold text-[#0f2a4a]">Anonymous Start &amp; Informed Consent</div>
+                <ul class="mt-1.5 text-[10.5px] text-slate-600 space-y-1 list-disc pl-3.5">
+                    <li>No account or personal identifiers</li>
+                    <li>Age and eligibility screening</li>
+                    <li>Clear explanation of scope and limits</li>
+                </ul>
+            </div>
+            <div class="arrow">&rsaquo;</div>
+            <div class="step">
+                <div class="num">2</div>
+                <div class="mt-2 text-[12px] font-extrabold text-[#0f2a4a]">Dual-Mode Symptom Intake</div>
+                <ul class="mt-1.5 text-[10.5px] text-slate-600 space-y-1 list-disc pl-3.5">
+                    <li>Interactive anatomical body map</li>
+                    <li>Conversational free-text search</li>
+                    <li>Clinical context helpers (onset, duration, severity)</li>
+                </ul>
+            </div>
+            <div class="arrow">&rsaquo;</div>
+            <div class="step" style="border-color:#fca5a5;background:#fef2f2;">
+                <div class="num" style="background:#b91c1c;">3</div>
+                <div class="mt-2 text-[12px] font-extrabold text-[#0f2a4a]">Clinician-Approved Triage Engine</div>
+                <ul class="mt-1.5 text-[10.5px] text-slate-600 space-y-1 list-disc pl-3.5">
+                    <li>Instant red-flag diversion: heart attack, stroke signs, acute distress</li>
+                    <li>Deterministic, auditable rules</li>
+                </ul>
+            </div>
+            <div class="arrow">&rsaquo;</div>
+            <div class="step">
+                <div class="num">4</div>
+                <div class="mt-2 text-[12px] font-extrabold text-[#0f2a4a]">Urgency Result &amp; Consultation Summary
+                </div>
+                <ul class="mt-1.5 text-[10.5px] text-slate-600 space-y-1 list-disc pl-3.5">
+                    <li>Clear care-urgency level</li>
+                    <li>Printable, doctor-ready clinical handover</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-2 text-[10px] text-slate-500 text-center">Red-flag presentations at any step bypass remaining
+            questions and move directly to emergency guidance.</div>
+
+        <div class="mt-8">
+            <div class="eyebrow">Section 3</div>
+            <h2 class="sec">Clinical Safety Matrix &amp; 5-Tier Care Acuity</h2>
+            <div class="rule"></div>
+
+            <table class="text-[11px] avoid">
+                <thead>
+                    <tr class="text-left text-white" style="background:#0f2a4a;">
+                        <th class="p-2 w-[8mm]">Tier</th>
+                        <th class="p-2 w-[48mm]">Care Destination</th>
+                        <th class="p-2">Meaning &amp; Platform Behaviour</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-slate-200" style="background:#fef2f2;">
+                        <td class="p-2 font-extrabold text-red-700">1</td>
+                        <td class="p-2 font-bold text-red-700">Emergency Assistance Now</td>
+                        <td class="p-2 text-slate-700">Immediate emergency guidance with direct dialer access. Zero
+                            delays and no further questioning.</td>
+                    </tr>
+                    <tr class="border-b border-slate-200" style="background:#fff7ed;">
+                        <td class="p-2 font-extrabold text-orange-700">2</td>
+                        <td class="p-2 font-bold text-orange-700">Urgent Medical Care Today</td>
+                        <td class="p-2 text-slate-700">Prompt same-day clinical evaluation recommended.</td>
+                    </tr>
+                    <tr class="border-b border-slate-200" style="background:#fefce8;">
+                        <td class="p-2 font-extrabold text-yellow-700">3</td>
+                        <td class="p-2 font-bold text-yellow-700">Arrange Medical Care Soon</td>
+                        <td class="p-2 text-slate-700">Routine clinical consultation advised; book at a convenient time.
+                        </td>
+                    </tr>
+                    <tr class="border-b border-slate-200" style="background:#f0fdf4;">
+                        <td class="p-2 font-extrabold text-green-700">4</td>
+                        <td class="p-2 font-bold text-green-700">General Self-Care Information</td>
+                        <td class="p-2 text-slate-700">Low-risk guidance, paired with safety-net indicators describing
+                            when to seek care.</td>
+                    </tr>
+                    <tr class="border-b border-slate-200" style="background:#f1f5f9;">
+                        <td class="p-2 font-extrabold text-slate-600">5</td>
+                        <td class="p-2 font-bold text-slate-700">Unable to Assess Reliably</td>
+                        <td class="p-2 text-slate-700">Pediatric boundary (children under 2 years) and ambiguous or
+                            insufficient inputs. The platform declines to guess and directs the person to a clinician.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-5 rounded-lg border-l-4 border-red-600 bg-red-50 p-4 avoid">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-red-700">Red-Flag Safety Guarantee</div>
+                <p class="mt-1 text-[11.5px] text-slate-700 leading-relaxed">
+                    Life-threatening presentations, including chest pain patterns suggestive of heart attack, stroke
+                    warning signs, and acute breathing or consciousness distress, are evaluated <b>before</b> routine
+                    questioning. When a red-flag rule is met, the person is taken immediately to Emergency Assistance
+                    Now guidance. No further questions, no scoring, and no waiting.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PAGE 3: BENCHMARKING + PRIVACY ============ -->
+    <section class="page">
+        <div class="eyebrow">Section 4</div>
+        <h2 class="sec">Market Benchmarking &amp; Competitive Advantage</h2>
+        <div class="rule"></div>
+        <p class="text-[11.5px] text-slate-600 mb-3">The platform delivers the capabilities that define the world's
+            leading symptom-assessment products, within a stricter clinical-governance model.</p>
+
+        <table class="text-[11px] avoid">
+            <thead>
+                <tr class="text-left text-white" style="background:#0f2a4a;">
+                    <th class="p-2 w-[40mm]">Global Leader</th>
+                    <th class="p-2">Benchmark Capability</th>
+                    <th class="p-2 w-[52mm]">Our Equivalent</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b border-slate-200">
+                    <td class="p-2 font-bold text-[#0f2a4a]">Ada Health</td>
+                    <td class="p-2 text-slate-700">Educational condition possibilities showing matching vs. absent
+                        indicators.</td>
+                    <td class="p-2 text-slate-700">Educational possibilities with matching and absent indicators. <b>No
+                            fabricated percentages.</b></td>
+                </tr>
+                <tr class="border-b border-slate-200">
+                    <td class="p-2 font-bold text-[#0f2a4a]">Infermedica / Symptomate</td>
+                    <td class="p-2 text-slate-700">Anatomical body mapping with dynamic follow-up questioning.</td>
+                    <td class="p-2 text-slate-700">Interactive body map with adaptive, clinician-defined follow-ups.
+                    </td>
+                </tr>
+                <tr class="border-b border-slate-200">
+                    <td class="p-2 font-bold text-[#0f2a4a]">Buoy Health</td>
+                    <td class="p-2 text-slate-700">Actionable care routing and direct emergency dialers.</td>
+                    <td class="p-2 text-slate-700">5-tier care routing with one-tap emergency dialing guidance.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="mt-3 grid grid-cols-3 gap-3 avoid">
+            <div class="rounded-lg bg-teal-50 border border-teal-200 p-3 text-[10.5px] text-slate-700"><b
+                    class="text-teal-800">Deterministic outcomes.</b> Reproducible and auditable, with no generative
+                guesswork.</div>
+            <div class="rounded-lg bg-teal-50 border border-teal-200 p-3 text-[10.5px] text-slate-700"><b
+                    class="text-teal-800">Zero-friction access.</b> No registration barrier to reaching safety guidance.
+            </div>
+            <div class="rounded-lg bg-teal-50 border border-teal-200 p-3 text-[10.5px] text-slate-700"><b
+                    class="text-teal-800">Clinical handover.</b> A printable summary designed for the consulting
+                physician.</div>
+        </div>
+        <p class="mt-2 text-[9.5px] text-slate-400">Product names are trademarks of their respective owners and are
+            referenced for capability benchmarking only. This is not a claim of affiliation, endorsement, or clinical
+            equivalence.</p>
+
+        <div class="mt-8">
+            <div class="eyebrow">Section 5</div>
+            <h2 class="sec">Privacy, Ethics &amp; Data Sovereignty</h2>
+            <div class="rule"></div>
+            <div class="grid grid-cols-1 gap-3">
+                <div class="rounded-lg border border-slate-200 p-4 avoid">
+                    <div class="text-[12.5px] font-extrabold text-[#0f2a4a]">Privacy-First Design</div>
+                    <p class="mt-1 text-[11.5px] text-slate-600">No names, phone numbers, or email addresses are
+                        required to check symptoms. Nothing personally identifying is needed to receive safety guidance.
+                    </p>
+                </div>
+                <div class="rounded-lg border border-slate-200 p-4 avoid">
+                    <div class="text-[12.5px] font-extrabold text-[#0f2a4a]">Ephemeral Session Isolation</div>
+                    <p class="mt-1 text-[11.5px] text-slate-600">Responses exist only for the duration of the active
+                        evaluation. They are not retained, profiled, or monetised, and each session is isolated from
+                        every other.</p>
+                </div>
+                <div class="rounded-lg border border-amber-300 bg-amber-50 p-4 avoid">
+                    <div class="text-[12.5px] font-extrabold text-amber-900">Medical Disclaimer &amp; Boundaries</div>
+                    <p class="mt-1 text-[11.5px] text-slate-700">The platform provides <b>educational triage information
+                            only</b>. It does not diagnose, prescribe, or replace the judgement of a licensed physician.
+                        In any emergency, or if the person is worried, they should contact local emergency services or a
+                        healthcare professional immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PAGE 4: REPORT + ROADMAP ============ -->
+    <section class="page">
+        <div class="eyebrow">Section 6</div>
+        <h2 class="sec">Doctor-Ready Consultation Report (A4 Specification)</h2>
+        <div class="rule"></div>
+
+        <div class="grid grid-cols-5 gap-5">
+            <div class="col-span-2">
+                <p class="text-[11.5px] text-slate-600 mb-3">At the end of each assessment, the person can print or save
+                    a one-page A4 summary to hand to their attending physician. It contains:</p>
+                <ul class="text-[11.5px] text-slate-700 space-y-2.5">
+                    <li class="flex gap-2"><span
+                            class="text-teal-600 font-extrabold">&#10003;</span><span><b>Chronological symptom
+                                timeline</b>: onset, progression, duration.</span></li>
+                    <li class="flex gap-2"><span class="text-teal-600 font-extrabold">&#10003;</span><span><b>Verified
+                                patient-reported facts</b>: answers as given, clearly attributed to the patient.</span>
+                    </li>
+                    <li class="flex gap-2"><span class="text-teal-600 font-extrabold">&#10003;</span><span><b>Unanswered
+                                or uncertain questions</b>: gaps flagged for the physician to explore.</span></li>
+                    <li class="flex gap-2"><span class="text-teal-600 font-extrabold">&#10003;</span><span><b>Medical
+                                disclaimer</b>: states that the report is patient-reported and not a diagnosis.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-span-3">
+                <div class="border border-slate-300 rounded-md p-4 bg-white shadow-sm" style="font-size:9.5px;">
+                    <div class="flex justify-between items-start border-b border-slate-200 pb-2">
+                        <div>
+                            <div class="font-extrabold text-[11px] text-[#0f2a4a]">Consultation Summary</div>
+                            <div class="text-slate-500">Patient-reported symptom assessment (illustrative layout)</div>
+                        </div>
+                        <div class="px-2 py-1 rounded font-bold text-orange-700 bg-orange-100">Urgent Care Today</div>
+                    </div>
+                    <div class="mt-2 font-bold text-slate-700">Symptom Timeline</div>
+                    <div class="mt-1 space-y-1 text-slate-600">
+                        <div class="flex gap-2"><span class="w-14 font-semibold">Day 1</span><span>Onset of main symptom
+                                (placeholder)</span></div>
+                        <div class="flex gap-2"><span class="w-14 font-semibold">Day 2</span><span>Change in severity
+                                (placeholder)</span></div>
+                        <div class="flex gap-2"><span class="w-14 font-semibold">Today</span><span>Current status
+                                (placeholder)</span></div>
+                    </div>
+                    <div class="mt-2 font-bold text-slate-700">Patient-Reported Facts</div>
+                    <div class="mt-1 h-6 rounded bg-slate-100"></div>
+                    <div class="mt-2 font-bold text-slate-700">Unanswered / Uncertain</div>
+                    <div class="mt-1 h-6 rounded bg-slate-100"></div>
+                    <div class="mt-3 pt-2 border-t border-slate-200 text-slate-400">Educational information only. Not a
+                        medical diagnosis. Please review with a licensed physician.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <div class="eyebrow">Section 7</div>
+            <h2 class="sec">Commercial Rollout &amp; Roadmap</h2>
+            <div class="rule"></div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-lg border border-teal-300 bg-teal-50 p-4 avoid">
+                    <div class="text-[10px] font-bold uppercase tracking-wider text-teal-800">Current State: Available
+                        Now</div>
+                    <ul class="mt-2 text-[11.5px] text-slate-700 space-y-1.5 list-disc pl-4">
+                        <li>Fully functional, verified core triage engine</li>
+                        <li>Responsive web interface for mobile, tablet, and desktop</li>
+                        <li>Doctor-ready reporting engine with A4 print output</li>
+                        <li>All five care-acuity tiers and red-flag safeguards operational</li>
+                    </ul>
+                </div>
+                <div class="rounded-lg border border-slate-300 bg-slate-50 p-4 avoid">
+                    <div class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Next Phases: Roadmap
+                    </div>
+                    <ol class="mt-2 text-[11.5px] text-slate-700 space-y-2">
+                        <li><b class="text-[#0f2a4a]">Phase 2: Specialty Modules.</b> Condition-area pathways developed
+                            with clinical specialists.</li>
+                        <li><b class="text-[#0f2a4a]">Phase 3: Clinical Administration Dashboard.</b> Governance tooling
+                            for rule review, approval, and aggregate quality insights.</li>
+                        <li><b class="text-[#0f2a4a]">Phase 4: Multi-Language Support.</b> Clinically reviewed
+                            translations for broader population reach.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="mt-5 rounded-lg text-white p-5 avoid" style="background:#0f2a4a;">
+                <div class="text-[13px] font-extrabold">Recommended Next Step</div>
+                <p class="mt-1 text-[11.5px] opacity-90">A guided walkthrough of the live platform with your clinical
+                    and operational leads, followed by a joint review of the care-pathway governance model and rollout
+                    plan.</p>
+            </div>
+        </div>
+
+        <div class="mt-6 pt-3 border-t border-slate-200 text-[9px] text-slate-400 leading-snug">
+            This document is provided for planning and evaluation purposes. The platform offers educational triage
+            guidance and does not provide medical diagnosis or treatment. Regulatory classification and approvals depend
+            on the jurisdiction of deployment and should be confirmed with qualified regulatory advisers prior to
+            launch.
+        </div>
+    </section>
+
+</body>
+
+</html>
